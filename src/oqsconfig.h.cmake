@@ -138,6 +138,11 @@
 #cmakedefine OQS_ENABLE_KEM_hqc_3 1
 #cmakedefine OQS_ENABLE_KEM_hqc_5 1
 
+#cmakedefine OQS_ENABLE_KEM_HQC_COMPRESSION 1
+#cmakedefine OQS_ENABLE_KEM_hqc_compression_1 1
+#cmakedefine OQS_ENABLE_KEM_hqc_compression_3 1
+#cmakedefine OQS_ENABLE_KEM_hqc_compression_5 1
+
 #cmakedefine OQS_ENABLE_KEM_KYBER 1
 #cmakedefine OQS_ENABLE_KEM_kyber_512 1
 #cmakedefine OQS_ENABLE_KEM_kyber_512_avx2 1

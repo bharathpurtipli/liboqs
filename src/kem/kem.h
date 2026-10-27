@@ -64,6 +64,12 @@ extern "C" {
 #define OQS_KEM_alg_hqc_3 "HQC-3"
 /** Algorithm identifier for HQC-5 KEM. */
 #define OQS_KEM_alg_hqc_5 "HQC-5"
+/** Algorithm identifier for HQC-COMPRESSION-1 KEM. */
+#define OQS_KEM_alg_hqc_compression_1 "HQC-COMPRESSION-1"
+/** Algorithm identifier for HQC-3 KEM. */
+#define OQS_KEM_alg_hqc_compression_3 "HQC-COMPRESSION-3"
+/** Algorithm identifier for HQC-5 KEM. */
+#define OQS_KEM_alg_hqc_compression_5 "HQC-COMPRESSION-5"
 /** Algorithm identifier for Kyber512 KEM. */
 #define OQS_KEM_alg_kyber_512 "Kyber512"
 /** Algorithm identifier for Kyber768 KEM. */
@@ -119,7 +125,7 @@ extern "C" {
 ///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ALGS_LENGTH_START
 
 /** Number of algorithm identifiers above. */
-#define OQS_KEM_algs_length 41
+#define OQS_KEM_algs_length 44
 ///// OQS_COPY_FROM_UPSTREAM_FRAGMENT_ALGS_LENGTH_END
 
 /**
@@ -361,6 +367,9 @@ OQS_API void OQS_KEM_free(OQS_KEM *kem);
 #ifdef OQS_ENABLE_KEM_HQC
 #include <oqs/kem_hqc.h>
 #endif /* OQS_ENABLE_KEM_HQC */
+#ifdef OQS_ENABLE_KEM_HQC_COMPRESSION
+#include <oqs/kem_hqc_compression.h>
+#endif /* OQS_ENABLE_KEM_HQC_COMPRESSION */
 #ifdef OQS_ENABLE_KEM_KYBER
 #include <oqs/kem_kyber.h>
 #endif /* OQS_ENABLE_KEM_KYBER */

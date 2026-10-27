@@ -79,7 +79,10 @@ static int is_mceliece(const char *method_name) {
 static int is_hqc(const char *method_name) {
 	return (0 == strcmp(method_name, OQS_KEM_alg_hqc_1))
 	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_3))
-	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_5));
+	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_5))
+	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_compression_1))
+	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_compression_3))
+	       || (0 == strcmp(method_name, OQS_KEM_alg_hqc_compression_5));
 }
 
 /* OQS_KAT_PRNG interface implementation */
