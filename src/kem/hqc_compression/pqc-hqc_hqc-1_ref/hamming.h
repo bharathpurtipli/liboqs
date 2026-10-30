@@ -3,8 +3,13 @@
 
 #include <stdint.h>
 #include "quantization.h"
+#include "namespace.h"
 
 #define POW2(i) (1 << (i))
+#define hamming_encode PQCHQC_NAMESPACE(hamming_encode)
+#define hamming_decode PQCHQC_NAMESPACE(hamming_decode)
+#define composite_hamming_quantization PQCHQC_NAMESPACE(composite_hamming_quantization)
+#define composite_hamming_dequantization PQCHQC_NAMESPACE(composite_hamming_dequantization)
 
 void hamming_encode(const uint8_t *msg, int m, uint8_t *codeword);
 void hamming_decode(const uint8_t *Y, int m, uint8_t *msg_hat);

@@ -2,6 +2,11 @@
 #define QUANTIZATION_H
 
 #include "data_structures.h"
+#include "namespace.h"
+
+#define apply_dither PQCHQC_NAMESPACE(apply_dither)
+#define ciphertext_quantization PQCHQC_NAMESPACE(ciphertext_quantization)
+#define ciphertext_dequantization PQCHQC_NAMESPACE(ciphertext_dequantization)
 
 #define GET_BIT_UINT64(arr, idx) (((arr[(idx) >> 6] >> ((idx) & 63)) & 1ULL))
 #define GET_BIT_UINT8(arr, idx) (((arr[(idx) >> 3] >> ((idx) & 7)) & 1U))

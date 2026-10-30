@@ -117,6 +117,7 @@ void hqc_pke_encrypt(ciphertext_pke_t *c_pke, const uint8_t *ek_pke, const uint6
     vect_sample_fixed_weight2(&theta_xof_ctx, r2, PARAM_OMEGA_R);
     vect_sample_fixed_weight2(&theta_xof_ctx, e, PARAM_OMEGA_E);
     vect_sample_fixed_weight2(&theta_xof_ctx, r1, PARAM_OMEGA_R);
+    xof_get_bytes(&theta_xof_ctx, c_pke->help, PARAM_SECURITY_BYTES);
     xof_ctx_release(&theta_xof_ctx);
 
     // Compute u = r1 + r2.h
@@ -133,7 +134,6 @@ void hqc_pke_encrypt(ciphertext_pke_t *c_pke, const uint8_t *ek_pke, const uint6
     vect_add(c_pke->v, c_pke->v, tmp, VEC_N1N2_SIZE_64);
 
     // Compress ciphertext part v
-    xof_get_bytes(&theta_xof_ctx, c_pke->help, PARAM_SECURITY_BYTES);
     ciphertext_quantization(c_pke);
 
 #ifdef VERBOSE
