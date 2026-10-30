@@ -3,8 +3,9 @@
 
 #include "data_structures.h"
 
-#define GET_BIT(arr, idx) (((arr[(idx) >> 6] >> ((idx) & 63)) & 1ULL))
-#define SET_BIT(arr, idx, val) \
+#define GET_BIT_UINT64(arr, idx) (((arr[(idx) >> 6] >> ((idx) & 63)) & 1ULL))
+#define GET_BIT_UINT8(arr, idx) (((arr[(idx) >> 3] >> ((idx) & 7)) & 1U))
+#define SET_BIT_UINT64(arr, idx, val) \
 do { \
 if (val) arr[(idx) >> 6] |= (1ULL << ((idx) & 63)); \
 else arr[(idx) >> 6] &= ~(1ULL << ((idx) & 63)); \

@@ -56,7 +56,7 @@ void print_hex(const char *label, const uint8_t *buf, size_t len) {
  */
 static void unpack_bits(const uint64_t *in, uint8_t *out, int num_bits) {
     for (int i = 0; i < num_bits; i++) {
-        out[i] = GET_BIT(in, i);
+        out[i] = GET_BIT_UINT64(in, i);
     }
 }
 
@@ -72,7 +72,7 @@ static void unpack_bits(const uint64_t *in, uint8_t *out, int num_bits) {
  */
 static void unpack_bits_unint8(const uint8_t *in, uint8_t *out, int num_bits) {
     for (int i = 0; i < num_bits; i++) {
-        out[i] = GET_BIT(in, i);
+        out[i] = GET_BIT_UINT8(in, i);
     }
 }
 
@@ -87,7 +87,7 @@ static void unpack_bits_unint8(const uint8_t *in, uint8_t *out, int num_bits) {
  */
 static void pack_bits(uint64_t *out, const uint8_t *in, int num_bits) {
     for (int i = 0; i < num_bits; i++) {
-        SET_BIT(out, i, in[i]);
+        SET_BIT_UINT64(out, i, in[i]);
     }
 }
 
@@ -170,9 +170,9 @@ void ciphertext_quantization(ciphertext_pke_t *c_pke) {
     pack_bits(c_pke->v, compressed_v_bits, COMPRESSED_V);
 
 #ifdef VERBOSE
-    print_bits(v_bits, PARAM_N1N2, "\n\nv: ")
+    print_bits(v_bits, PARAM_N1N2, "\n\nv: ");
     print_hex("\n\nhelp for dither: ",c_pke->help, PARAM_SECURITY_BYTES);
-    print_bits(compressed_v_bits, COMPRESSED_V, "\n\ncompressed_v: ")
+    print_bits(compressed_v_bits, COMPRESSED_V, "\n\ncompressed_v: ");
 #endif
 
     free(v_bits);
@@ -220,9 +220,9 @@ void ciphertext_dequantization(ciphertext_pke_t *c_pke) {
     pack_bits(c_pke->v, decompressed_v_bits, PARAM_N1N2);
 
 #ifdef VERBOSE
-    print_bits(compressed_v_bits, COMPRESSED_V, "\n\ncompressed_v: ")
+    print_bits(compressed_v_bits, COMPRESSED_V, "\n\ncompressed_v: ");
     print_hex("\n\nhelp for dither: ",c_pke->help, PARAM_SECURITY_BYTES);
-    print_bits(decompressed_v_bits, PARAM_N1N2, "\n\ndecompressed_v: ")
+    print_bits(decompressed_v_bits, PARAM_N1N2, "\n\ndecompressed_v: ");
 #endif
 
     free(compressed_v_bits);
